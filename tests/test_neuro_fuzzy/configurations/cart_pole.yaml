@@ -1,0 +1,17 @@
+training:
+  learning_rate: 1e-4
+
+fuzzy_ml:
+  clustering:
+    ecm:
+      EvolvingClusteringMethod:
+        distance_threshold: 0.5
+  rulemaking:
+    wang_mendel:
+      WangMendelMethod:
+        t_norm: SOFTMAX_SUM
+  partitioning:
+    clip:
+      CategoricalLearningInducedPartitioning:
+        adjustment: 0.3
+        epsilon: 0.7  # epsilon-completeness

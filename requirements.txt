@@ -1,0 +1,26 @@
+rpy2==3.5.16  # to run R code from Python
+tqdm==4.66.5  # for torchquad
+numpy==1.26.4  # new is 2.0.1 (update when possible - tests fail otherwise)
+pandas==1.5.3  # new is 2.2.2 (update when possible - tests fail otherwise)
+regime==0.0.4  # mine; use the latest
+igraph==0.11.6
+scipy==1.13.1  # for torchquad
+sympy==1.13.2  # for torch
+PyYAML==6.0.2  # for Config
+graphviz==0.20.3  # for rough-theory
+torch==2.4.0
+torchquad==0.4.0
+torchvision==0.19.0  # for ECM datasets
+networkx==3.2.1  # for torch
+rough-theory  # mine; use the latest
+fuzzy-theory # mine; use the latest
+fuzzy-ml  # mine; use the latest
+scikit-learn==1.5.1  # for torchquad?
+scikit-image==0.24.0  # for VizDoom experiments
+matplotlib==3.9.1  # for torchquad
+typing-extensions==4.12.2  # for torch
+SciencePlots==2.1.1  # for scientific publication plots
+natsort==8.4.0  # for natural sorting
+skorch==1.0.0
+kneed==0.8.5  # find elbows in plots
+pycairo==1.28.0  # for plotting FYD graphs, may be OS dependent (alternative is cairocffi)

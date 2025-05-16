@@ -1,0 +1,82 @@
+output:
+  name: my-log
+  scorer: True
+  verbose: True
+
+fuzzy:
+  partition: # e.g., CLIP
+    max: 5  # e.g., Expert Partitioning
+    adjustment: 0.2  # e.g., CLIP
+    epsilon: 0.6  # epsilon-completeness (e.g., CLIP)
+  rough:
+    compatibility: True  # whether to enable neuro-fuzzy networks' compatibility with PySoft's rough set theory
+
+reproducibility:
+  seed: 0  # this seed is used to initialize the RNG for everything
+
+training:
+  reinforcement:
+    gamma: 0.99
+    conservative_alpha: 0.2  # i.e., the alpha value used by Conservative Q-learning
+  total_time_steps: 1000  # e.g., the total time steps to train a policy on environment
+  learning_rate: 1e-4
+  epochs: 12
+  patience: 4
+  data:
+    batch: 32
+
+validation:
+  data:
+    batch: 32
+
+evaluation:
+  online:
+    reinforcement:
+      num_episodes: 100  # num of episodes to evaluate model on online environment
+
+# the following is the NEW convention for the configuration file, above is the OLD convention
+
+fuzzy_ml:
+  association:
+    temporal:  # e.g., FTARM
+      FuzzyTemporalAssocationRuleMining:
+        min_support: 0.3
+        min_confidence: 0.8
+  clustering:
+    ecm:
+      EvolvingClusteringMethod:
+        distance_threshold: 0.7
+  rulemaking:
+    wang_mendel:
+      WangMendelMethod:
+        t_norm: PRODUCT
+    latent_lockstep:
+      LatentLockstep:  # uses CLIP, so the partitioning parameters are inherited
+        adjustment: 0.2
+        epsilon: 0.6
+  partitioning:
+    clip:
+      CategoricalLearningInducedPartitioning:
+        adjustment: 0.2
+        epsilon: 0.6  # epsilon-completeness
+
+neuro_fuzzy:
+  supervised:
+    skorch:
+      regime:
+        SupervisedTraining:
+          learning_rate: 1e-4
+          max_epochs: 12
+          batch_size: 32
+          patience: 4
+          monitor: valid_loss
+
+organize:
+  wrappers:
+    temporal:
+      FTARM:
+        min_support: 0.3
+        min_confidence: 0.8
+
+auto_encoder:
+  dimensionality: 2

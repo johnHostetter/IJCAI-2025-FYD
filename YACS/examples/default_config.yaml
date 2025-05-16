@@ -1,0 +1,8 @@
+mode: train
+
+model:
+  backbone: vgg19
+
+data:
+  source: dir/to/data/*.jpg
+  batch_size: 32
